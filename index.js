@@ -15,6 +15,12 @@ function createNodeContainer(node) {
     destination.appendChild(newElement);
 }
 
+function createBlankNodeContainer(node) {
+    const newElement = document.createElement("div");
+    newElement.appendChild(node);
+    destination.appendChild(newElement);
+}
+
 function kata1() {
     let text = ""
     for(let i = 0; i <= 20; i++) {
@@ -214,12 +220,87 @@ createTextContainer("18. Display the largest element in sampleArray.")
 createNodeContainer(kata18())
 
 function kata19() {
+    const containerDiv = document.createElement("div")
     for(let i = 1; i <= 20; i++) {
-        newElement.appendChild(node)
-        newElement.className("graybox")
+        const newElement = document.createElement("div")
+        newElement.classList.add("graybox");
+        newElement.style.width = "100px"
+        containerDiv.appendChild(newElement)
     }
-    return document.createTextNode(node)
+    return containerDiv
 }
 
 createTextContainer("19. Display 20 solid gray rectangles, each 20px high and 100px wide.")
-createNodeContainer(kata19())
+createBlankNodeContainer(kata19())
+
+function kata20() {
+    const containerDiv = document.createElement("div")
+    for(let i = 105; i <= 200; i += 5) {
+        const newElement = document.createElement("div")
+        newElement.classList.add("graybox")
+        newElement.style.width = i + "px"
+        containerDiv.appendChild(newElement)
+    }
+    return containerDiv
+}
+
+createTextContainer("20. Display 20 solid gray rectangles, each 20px high, with widths ranging evenly from 105px to 200px.")
+createBlankNodeContainer(kata20())
+
+function kata21() {
+    const containerDiv = document.createElement("div")
+    for(let i = 0; i < 20; i++) {
+        const newElement = document.createElement("div")
+        newElement.classList.add("graybox")
+        newElement.style.width = sampleArray[i] + "px"
+        containerDiv.appendChild(newElement)
+    }
+    return containerDiv
+}
+
+createTextContainer("21. Display 20 solid gray rectangles, each 20px high, with widths in pixels given by the 20 elements of sampleArray.")
+createBlankNodeContainer(kata21())
+
+function kata22() {
+    const containerDiv = document.createElement("div")
+    for(let i = 0; i < 20; i++) {
+        if((i % 2) == 0) {
+            const newElement = document.createElement("div")
+            newElement.classList.add("graybox")
+            newElement.style.width = sampleArray[i] + "px"
+            containerDiv.appendChild(newElement)
+        }
+        else {
+            const newElement = document.createElement("div")
+            newElement.classList.add("redbox")
+            newElement.style.width = sampleArray[i] + "px"
+            containerDiv.appendChild(newElement)
+        }
+    }
+    return containerDiv
+}
+
+createTextContainer("22. As in #21, but alternate colors so that every other rectangle is red.")
+createBlankNodeContainer(kata22())
+
+function kata23() {
+    const containerDiv = document.createElement("div")
+    for(let i = 0; i < 20; i++) {
+        if((sampleArray[i] % 2) == 0) {
+            const newElement = document.createElement("div")
+            newElement.classList.add("redbox")
+            newElement.style.width = sampleArray[i] + "px"
+            containerDiv.appendChild(newElement)
+        }
+        else {
+            const newElement = document.createElement("div")
+            newElement.classList.add("graybox")
+            newElement.style.width = sampleArray[i] + "px"
+            containerDiv.appendChild(newElement)
+        }
+    }
+    return containerDiv
+}
+
+createTextContainer("23. As in #21, but color the rectangles with even widths red.")
+createBlankNodeContainer(kata23())
